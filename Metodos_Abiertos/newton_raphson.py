@@ -2,12 +2,7 @@ import numpy as np
 from collections import namedtuple
 
 def newton_raphson(f, df, x0, tol=1e-6, max_iter=100, verbose=False):
-    """
-    f:  función numérica f(x)
-    df: función numérica f'(x)
-    x0: valor inicial
-    tol: tolerancia
-    """
+  
     # Validaciones iniciales
     if tol <= 0:
         raise ValueError("La tolerancia debe ser positiva.")

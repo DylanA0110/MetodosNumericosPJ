@@ -29,8 +29,24 @@ f = sp.lambdify(x, f_expr, "numpy")
 df = sp.lambdify(x, df_expr, "numpy")
 
 # 👉 Método a usar
-metodo = input("Elige un método (punto_fijo, newton_raphson, secante): ").strip()
+metodo = input("Elige un método (punto_fijo, newton_raphson, secante, sistemas): ").strip()
 
+if metodo == "sistemas":
+    n = int(input("¿Cuántas variables tiene el sistema?: "))
+    variables = sp.symbols(f'x1:{n+1}')
+    
+    funciones_input = [input(f"Ingrese la función f{i+1}(x): ") for i in range(n)]
+    funciones_expr = [sp.sympify(expr) for expr in funciones_input]
+    jacobiana_expr = sp.Matrix(funciones_expr).jacobian(variables)
+
+    F = sp.lambdify([variables], funciones_expr, 'numpy')
+    J = sp.lambdify([variables], jacobiana_expr, 'numpy')
+
+    x0 = [float(input(f"Ingresa x{i+1}_0: ")) for i in range(n)]
+
+    resultados, solucion = newton_raphson_sistemas(F, J, x0, tol)
+
+    exportar_excel(resultados, metodo="sistemas", funcion_str_expr=funciones_expr)
 # Si es punto fijo, también pide g(x)
 g_expr = None
 g = None
