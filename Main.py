@@ -48,8 +48,8 @@ if metodo == "secante":
 # 👉 Tolerancia fija
 tol = 0.01
 print("Usando tolerancia fija: 0.01")
-
-# 🧮 Ejecutar método según selección
+    
+    # 🧮 Ejecutar método según selección
 if metodo == "punto_fijo":
     resultados = punto_fijo(g, x00, tol)
     graficar_errores(resultados, "Punto Fijo")

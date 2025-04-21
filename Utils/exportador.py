@@ -1,7 +1,11 @@
 import pandas as pd
 import sympy as sp
+import os
 
 def exportar_excel(resultados, nombre_archivo="resultados.xlsx", metodo="Metodo", funcion_str_expr=None):
+    # Ruta de destino en el escritorio
+    carpeta_destino = r"C:\Users\PC\Desktop\exceles calculados"
+    os.makedirs(carpeta_destino, exist_ok=True)  # Crear la carpeta si no existe
     if metodo == "newton_raphson":
         columnas = ["Iteración", "X_i-1", "f(X_i-1)", "f'(X_i-1)", "X_i", "Error"]
     elif metodo == "secante":
