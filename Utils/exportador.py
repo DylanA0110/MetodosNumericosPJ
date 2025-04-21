@@ -10,10 +10,13 @@ def exportar_excel(resultados, nombre_archivo="resultados.xlsx", metodo="Metodo"
         columnas = ["Iteración", "X_i-1", "f(X_i-1)", "f'(X_i-1)", "X_i", "Error"]
     elif metodo == "secante":
         columnas = ["Iteración", "X_i-1", "X_i", "f(X_i-1)", "f(X_i)", "X_i+1", "f(X_i+1)", "Error"]
-    else:  # punto fijo
+    elif metodo == "punto_fijo":
         columnas = ["Iteración", "X_n", "X_n+1", "Error"]
+    elif metodo == "sistemas":
+        columnas = ["Iteración", "X_i", "F(X_i)", "J(X_i)", "Error"]
 
-    nombre_archivo = f"resultados_{metodo}.xlsx"
+    # Guardar el archivo Excel en la carpeta de destino
+    nombre_archivo = os.path.join(carpeta_destino, f"resultados_{metodo}.xlsx")
 
     with pd.ExcelWriter(nombre_archivo, engine='xlsxwriter') as writer:
         workbook = writer.book
@@ -38,6 +41,3 @@ def exportar_excel(resultados, nombre_archivo="resultados.xlsx", metodo="Metodo"
                 worksheet.write(row_num, col_num, value)
 
     print(f"Resultados guardados en {nombre_archivo}")
-
-# Ejemplo de uso
-# exportar_excel(resultados, metodo="secante", funcion_str_expr=sp.sympify("x**2 - x*sin(x) - cos(x)"))
