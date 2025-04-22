@@ -66,10 +66,8 @@ elif metodo == "sistemas":
     F = sp.lambdify(variables, funciones_expr, 'numpy')
     J = sp.lambdify(variables, jacobiana_expr, 'numpy')
 
-    # Valores iniciales: uno por cada variable
     x0 = [float(input(f"Ingresa x{i+1}_0: ")) for i in range(n)]
 
-    # Ejecutar
     resultados, solucion = newton_raphson_sistemas(F, J, x0, tol)
 
     exportar_sistemas(resultados, funcion_str_expr=funciones_expr)
