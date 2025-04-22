@@ -3,13 +3,11 @@ from collections import namedtuple
 
 def newton_raphson(f, df, x0, tol=1e-6, max_iter=100, verbose=False):
   
-    # Validaciones iniciales
     if tol <= 0:
         raise ValueError("La tolerancia debe ser positiva.")
     if max_iter <= 0:
         raise ValueError("El número máximo de iteraciones debe ser positivo.")
 
-    # Estructura de resultados
     Iteration = namedtuple('Iteration', ['iter', 'x', 'fx', 'dfx', 'x_next', 'error'])
     results = []
 
@@ -18,11 +16,9 @@ def newton_raphson(f, df, x0, tol=1e-6, max_iter=100, verbose=False):
         fx = f(x_current)
         dfx = df(x_current)
 
-        # Verificaciones numéricas
         if not np.isfinite(fx) or not np.isfinite(dfx) or abs(dfx) < 1e-12:
             raise ZeroDivisionError(f"Problema numérico en x = {x_current}")
 
-        # Paso de Newton
         x_next = x_current - fx / dfx
         error = abs(x_next - x_current)
 
