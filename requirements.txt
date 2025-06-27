@@ -1,4 +1,4 @@
 flask==2.0.1
 gunicorn==23.0.0
-numpy==1.21.2
-sympy==1.8
+numpy>=1.26.0  # Versión compatible con Python 3.13
+sympy>=1.12    # Versión actualizada
