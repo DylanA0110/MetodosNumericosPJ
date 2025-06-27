@@ -1,4 +1,6 @@
-flask==2.0.1
-gunicorn==23.0.0
-numpy>=1.26.0  # Versión compatible con Python 3.13
-sympy>=1.12    # Versión actualizada
+flask==3.0.2
+werkzeug==3.0.1
+gunicorn==21.2.0
+numpy==2.0.0
+sympy==1.12
+markupsafe==2.1.3
