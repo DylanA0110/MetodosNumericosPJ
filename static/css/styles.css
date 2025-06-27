@@ -267,13 +267,51 @@ footer {
     animation: float 4s ease-in-out infinite;
 }
 
+.docente-mention {
+    color: white !important;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.docente-mention strong {
+    font-weight: 500;
+    color: white !important;
+}
 /* Efecto neumorfismo para inputs en focus */
 .input-neumorphic:focus {
     background: #f8f9fa;
     box-shadow: inset 5px 5px 10px #e9ecef, 
                 inset -5px -5px 10px #ffffff;
 }
+/* Estilos para el agradecimiento */
+.agradecimiento {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    border-left: 3px solid var(--accent-color);
+    padding-left: 10px;
+    margin-top: 8px;
+}
 
+.agradecimiento strong {
+    color: white;
+    font-weight: 500;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .agradecimiento {
+        text-align: center;
+        border-left: none;
+        border-top: 2px solid var(--accent-color);
+        padding-left: 0;
+        padding-top: 10px;
+        margin-top: 15px;
+    }
+    
+    .creditos, .agradecimiento {
+        text-align: center !important;
+    }
+}
 /* Responsive */
 @media (max-width: 768px) {
     .header-content {
