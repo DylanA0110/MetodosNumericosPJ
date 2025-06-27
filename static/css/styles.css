@@ -235,6 +235,18 @@ footer {
     align-items: center;
 }
 
+.social-links a {
+    color: white;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
 /* Animaciones */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
