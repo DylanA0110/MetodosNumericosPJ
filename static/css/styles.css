@@ -1,0 +1,276 @@
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4895ef;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --success-color: #4cc9f0;
+  --warning-color: #f72585;
+  --font-main: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: #f5f7ff;
+    color: var(--dark-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header con logo */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    background: url('/static/img/logo.ico') no-repeat center left 2rem/contain;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content p {
+    margin: 0.5rem 0 0;
+    color: rgba(255,255,255,0.9);
+    font-weight: 300;
+}
+
+/* Tarjetas modernas */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    overflow: hidden;
+    background: white;
+    margin-bottom: 2rem;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    color: white;
+    font-weight: 600;
+    padding: 1.25rem;
+    border-bottom: none;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* Formularios modernos */
+.form-control, .form-select {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background-color: #f8f9fa;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.15);
+    background-color: white;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+/* Botones modernos */
+.btn {
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(to right, #4cc9f0, #4895ef);
+}
+
+.btn-danger {
+    background: linear-gradient(to right, #f72585, #b5179e);
+}
+
+/* Sección de conceptos */
+#conceptos {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    margin: 2rem 0;
+}
+
+#conceptos img {
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: transform 0.3s;
+}
+
+#conceptos img:hover {
+    transform: scale(1.02);
+}
+
+/* Resultados */
+#resultados {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.result-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Tabla moderna */
+.table {
+    font-size: 0.95rem;
+    margin: 1rem 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    color: white;
+    border: none;
+    font-weight: 500;
+    padding: 1rem;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgba(67, 97, 238, 0.05);
+}
+
+.table tbody tr:hover {
+    background-color: rgba(67, 97, 238, 0.1);
+}
+
+.table td, .table th {
+    padding: 1rem;
+    vertical-align: middle;
+    border-top: 1px solid rgba(0,0,0,0.03);
+}
+
+/* Gráficos */
+.chart-container {
+    position: relative;
+    height: 300px;
+    margin: 1rem 0;
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Footer moderno */
+footer {
+    background: linear-gradient(to right, var(--dark-color), #343a40);
+    color: white;
+    padding: 2rem 0;
+    margin-top: auto;
+    border-radius: 20px 20px 0 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Efecto neumorfismo para inputs en focus */
+.input-neumorphic:focus {
+    background: #f8f9fa;
+    box-shadow: inset 5px 5px 10px #e9ecef, 
+                inset -5px -5px 10px #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        padding-left: 0;
+        text-align: center;
+        flex-direction: column;
+    }
+    
+    header::before {
+        background-position: center top 1rem;
+    }
+}
