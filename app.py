@@ -2,9 +2,10 @@ from flask import Flask, render_template, request, jsonify
 import numpy as np
 from collections import namedtuple
 import sympy as sp
+import os
 import json
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
 
 # Implementación de los métodos numéricos (copiada del código proporcionado)
 def newton_raphson(f, df, x0, tol=1e-6, max_iter=100):
