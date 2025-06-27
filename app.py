@@ -7,7 +7,12 @@ import json
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
-# Implementación de los métodos numéricos (copiada del código proporcionado)
+def calcular_error(x_new, x_old):
+    """Calcula el error relativo porcentual según la fórmula de la imagen"""
+    if x_new == 0:
+        return float('inf')
+    return abs((x_new - x_old) / x_new) * 100
+
 def newton_raphson(f, df, x0, tol=1e-6, max_iter=100):
     if tol <= 0:
         raise ValueError("La tolerancia debe ser positiva.")
@@ -26,7 +31,7 @@ def newton_raphson(f, df, x0, tol=1e-6, max_iter=100):
             raise ZeroDivisionError(f"Problema numérico en x = {x_current}")
 
         x_next = x_current - fx / dfx
-        error = abs(x_next - x_current)
+        error = calcular_error(x_next, x_current)
 
         results.append(Iteration(i, x_current, fx, dfx, x_next, error))
 
@@ -44,7 +49,7 @@ def punto_fijo(g, x0, tol, max_iter=100):
     for i in range(max_iter):
         try:
             x_next = g(x)
-            error = abs(x_next - x)
+            error = calcular_error(x_next, x)
 
             if not np.isfinite(x_next):
                 raise ValueError(f"[Iteración {i}] x_next no es válido (NaN o infinito). Se aborta.")
@@ -75,7 +80,7 @@ def secante(f, x0, x1, tol, max_iter=100):
 
         x2 = x1 - f_x1 * (x1 - x0) / (f_x1 - f_x0)
         f_x2 = f(x2)
-        error = abs(x2 - x1)
+        error = calcular_error(x2, x1)
 
         resultados.append([i, x0, x1, f_x0, f_x1, x2, f_x2, error])
 
